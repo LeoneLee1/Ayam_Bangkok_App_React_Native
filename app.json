@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Ayam Bangkok",
+    "slug": "ayam-bangkok",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon-app.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/icon-app.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-app.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.danielruntuwene.ayambangkok",
+      "permissions": ["READ_CALENDAR", "WRITE_CALENDAR"]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": ["expo-font"],
+    "extra": {
+      "eas": {
+        "projectId": "808f6514-9916-428b-a15c-f4909b1ab9e4"
+      }
+    }
+  }
+}
