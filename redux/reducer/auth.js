@@ -415,4 +415,68 @@ export const updateValueZoomReducer = (state = updateValueZoom, action) => {
   }
 };
 
+const kantorUnitData = {
+  kantor: null,
+};
+
+export const kantorUnitDataReducer = (state = kantorUnitData, action) => {
+  switch (action.type) {
+    case "GET_KANTOR_DATA":
+      return {
+        ...state,
+        kantor: action.value,
+      };
+    default:
+      return state;
+  }
+};
+
+const fetchKantorUnitData = {
+  fetchKantor: null,
+};
+
+export const fetchKantorUnitDataReducer = (state = fetchKantorUnitData, action) => {
+  switch (action.type) {
+    case "FETCH_KANTOR_DATA":
+      return {
+        ...state,
+        fetchKantor: action.value,
+      };
+    default:
+      return state;
+  }
+};
+
+const kandangData = {
+  kandang: null,
+};
+
+export const kandangDataReducer = (state = kandangData, action) => {
+  switch (action.type) {
+    case "GET_KANDANG_DATA":
+      return {
+        ...state,
+        kandang: action.value,
+      };
+    default:
+      return state;
+  }
+};
+
+const fetchKandangData = {
+  fetchKandang: null,
+};
+
+export const fetchKandangDataReducer = (state = fetchKandangData, action) => {
+  switch (action.type) {
+    case "FETCH_KANDANG_DATA":
+      return {
+        ...state,
+        fetchKandang: action.value,
+      };
+    default:
+      return state;
+  }
+};
+
 export default bookingReducer;

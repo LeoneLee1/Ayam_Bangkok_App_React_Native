@@ -16,6 +16,10 @@ import {
   dataKritikReducer,
   pesanHarianReducer,
   insertPesanHarianReducer,
+  kantorUnitDataReducer,
+  fetchKantorUnitDataReducer,
+  kandangDataReducer,
+  fetchKandangDataReducer,
 } from "./auth";
 import { globalReducer } from "./global";
 
@@ -37,6 +41,10 @@ const reducer = combineReducers({
   dataKritikReducer,
   pesanHarianReducer,
   insertPesanHarianReducer,
+  kantorUnitDataReducer,
+  fetchKantorUnitDataReducer,
+  kandangDataReducer,
+  fetchKandangDataReducer,
 });
 
 export default reducer;

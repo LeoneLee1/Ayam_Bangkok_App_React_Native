@@ -8,7 +8,7 @@ const Icon = ({ label, focus }) => {
     case "Order":
       return focus ? <Image source={require("../../../assets/img/Icon/icons8-utensil-50.png")} style={styles.icon} /> : <Image source={require("../../../assets/img/Icon/icons8-utensil-50-off.png")} style={styles.icon} />;
     case "Menu":
-      return focus ? <Image source={require("../../../assets/img/Icon/icons8-menu-50.png")} style={styles.iconMenu} /> : <Image source={require("../../../assets/img/Icon/icons8-menu-50-off.png")} style={styles.iconMenu} />;
+      return focus ? <Image source={require("../../../assets/img/Icon/icons8-menu-100.png")} style={styles.iconMenu} /> : <Image source={require("../../../assets/img/Icon/icons8-menu-100-off.png")} style={styles.iconMenu} />;
     case "Booking":
       return focus ? <Image source={require("../../../assets/img/Icon/icons8-door-50.png")} style={styles.icon} /> : <Image source={require("../../../assets/img/Icon/icons8-door-50-off.png")} style={styles.icon} />;
     case "Zoom":

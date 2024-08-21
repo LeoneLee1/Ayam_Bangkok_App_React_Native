@@ -3,14 +3,14 @@ import { showMessage } from "react-native-flash-message";
 import { setLoading } from "./global";
 import { getData, storeData } from "../../utils/storage/index";
 
-const API_HOST = {
-  url: "https://apps.ptmustika.my.id/api",
-};
+// const API_HOST = {
+//   url: "https://apps.ptmustika.my.id/api",
+// };
 
 // SESUAI IP ADDRESS WIFI KALIAN CONTOH = http://192.168.1.1:8000 (KANTOR)
-// const API_HOST = {
-//   url: "http://192.168.1.88:8000/api",
-// };
+const API_HOST = {
+  url: "http://192.168.1.88:8000/api",
+};
 
 // KOSAN IP ADRRESS
 // const API_HOST = {
@@ -85,33 +85,6 @@ export const getProfileAction = () => (dispatch) => {
       });
   });
 };
-
-// GANTI PASSWORD
-// export const gantiPass = (newPassword) => (dispatch) => {
-//   dispatch(setLoading(true));
-//   getData("token")
-//     .then((token) => {
-//       return Axios.post(
-//         `${API_HOST.url}/gantiPass`,
-//         { password: newPassword },
-//         {
-//           headers: {
-//             Authorization: `Bearer ${token.value}`,
-//           },
-//         }
-//       );
-//     })
-//     .then((res) => {
-//       console.log("Change Password Response:", res.data);
-//       showMessage("success", "Password berhasil diubah!");
-//       dispatch(setLoading(false));
-//     })
-//     .catch((err) => {
-//       dispatch(setLoading(false));
-//       console.error("Change Password Error:", err);
-//       showMessage("error", "Gagal mengubah password");
-//     });
-// };
 
 // GET DATA ORDER MAKAN BY LOGIN USER
 export const getOrderAction = () => (dispatch) => {
@@ -880,3 +853,117 @@ const updateValueZoomFailure = (error) => ({
   type: "UPDATE_VALUE_ZOOM_FAILURE",
   payload: error,
 });
+
+// GET DATA LOKASI KANTOR UNIT
+export const getLokasiKantorUnit = () => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get(`${API_HOST.url}/lokasi-unit`)
+    .then((res) => {
+      console.log("Data Lokasi Kantor Unit Response:", res.data);
+      dispatch({
+        type: "GET_KANTOR_DATA",
+        value: {
+          kantor: res.data,
+        },
+      });
+      dispatch(setLoading(false));
+    })
+    .catch((err) => {
+      // dispatch({
+      //   type: "GET_ZOOM_PESAN_BY_ID",
+      //   value: {
+      //     isizoom: [],
+      //   },
+      // });
+      dispatch(setLoading(false));
+      console.log("Data Lokasi Kantor Unit:", err);
+    });
+};
+
+// FETCH DATA LOKASI KANTOR UNIT
+export const fetchLokasiKantorUnit = () => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get(`${API_HOST.url}/fetch-data`)
+    .then((res) => {
+      console.log("Fetch Data Lokasi Kantor Unit Response:", res.data);
+      dispatch({
+        type: "FETCH_KANTOR_DATA",
+        value: {
+          fetchKantor: res.data,
+        },
+      });
+      showMessage({
+        message: "Data berhasil diperbarui",
+        type: "success",
+        duration: 2000,
+      });
+      dispatch(setLoading(false));
+    })
+    .catch((err) => {
+      // dispatch({
+      //   type: "GET_ZOOM_PESAN_BY_ID",
+      //   value: {
+      //     isizoom: [],
+      //   },
+      // });
+      dispatch(setLoading(false));
+      console.log("Fetch Data Lokasi Kantor Unit:", err);
+    });
+};
+
+// GET DATA LOKASI KANTOR UNIT
+export const getLokasiKandang = () => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get(`${API_HOST.url}/lokasi-kandang`)
+    .then((res) => {
+      console.log("Data Lokasi Kandang Response:", res.data);
+      dispatch({
+        type: "GET_KANDANG_DATA",
+        value: {
+          kandang: res.data,
+        },
+      });
+      dispatch(setLoading(false));
+    })
+    .catch((err) => {
+      // dispatch({
+      //   type: "GET_ZOOM_PESAN_BY_ID",
+      //   value: {
+      //     isizoom: [],
+      //   },
+      // });
+      dispatch(setLoading(false));
+      console.log("Data Lokasi Kandang:", err);
+    });
+};
+
+// FETCH DATA LOKASI KANTOR UNIT
+export const fetchLokasiKandang = () => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get(`${API_HOST.url}/fetch-data-kandang`)
+    .then((res) => {
+      console.log("Fetch Data Lokasi Kandang Response:", res.data);
+      dispatch({
+        type: "FETCH_KANDANG_DATA",
+        value: {
+          fetchKandang: res.data,
+        },
+      });
+      showMessage({
+        message: "Data berhasil diperbarui",
+        type: "success",
+        duration: 2000,
+      });
+      dispatch(setLoading(false));
+    })
+    .catch((err) => {
+      // dispatch({
+      //   type: "GET_ZOOM_PESAN_BY_ID",
+      //   value: {
+      //     isizoom: [],
+      //   },
+      // });
+      dispatch(setLoading(false));
+      console.log("Fetch Data Lokasi Kandang:", err);
+    });
+};

@@ -1,10 +1,39 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
 import { Header } from "../../components";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MenuAll = () => {
   const navigation = useNavigation();
+
+  const handleLogout = async () => {
+    Alert.alert(
+      "Konfirmasi Logout",
+      "Apakah Anda yakin ingin logout?",
+      [
+        {
+          text: "Batal",
+          style: "cancel",
+        },
+        {
+          text: "Logout",
+          onPress: async () => {
+            try {
+              console.log("Memulai proses logout...");
+              await AsyncStorage.removeItem("token");
+              console.log("Token berhasil dihapus. Melakukan reset navigasi...");
+              navigation.reset({ index: 0, routes: [{ name: "Login" }] });
+            } catch (e) {
+              showMessage("Gagal Logout");
+            }
+          },
+          style: "destructive",
+        },
+      ],
+      { cancelable: true }
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -12,9 +41,9 @@ const MenuAll = () => {
       <View style={styles.backgroundContainer}>
         <View style={styles.tableContainer}>
           <View style={styles.tableRow}>
-            <TouchableOpacity style={styles.tableCell} onPress={() => navigation.navigate("Settings")}>
-              <Image source={require("../../assets/img/Icon/icon-settings.png")} style={styles.icon} />
-              <Text style={[styles.cellText, { color: "#106eea" }]}>Settings</Text>
+            <TouchableOpacity style={styles.tableCell} onPress={() => navigation.navigate("Saran")}>
+              <Image source={require("../../assets/img/Icon/icon-kritik.png")} style={styles.icon} />
+              <Text style={[styles.cellText, { color: "#106eea" }]}>Kritik & Saran</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.tableCell} onPress={() => navigation.navigate("Kantor")}>
               <Image source={require("../../assets/img/Icon/icons-gps.png")} style={styles.icon} />
@@ -32,9 +61,9 @@ const MenuAll = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.tableRow}>
-            <TouchableOpacity style={styles.tableCell} onPress={() => navigation.navigate("Saran")}>
-              <Image source={require("../../assets/img/Icon/icon-kritik.png")} style={styles.icon} />
-              <Text style={[styles.cellText, { color: "#106eea" }]}>Kritik & Saran</Text>
+            <TouchableOpacity style={styles.tableCell} onPress={handleLogout}>
+              <Image source={require("../../assets/img/Icon/icons8-power-off-100-red.png")} style={styles.icon} />
+              <Text style={[styles.cellText, { color: "#106eea" }]}>Logout</Text>
             </TouchableOpacity>
           </View>
         </View>
