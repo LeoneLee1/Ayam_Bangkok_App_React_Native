@@ -116,7 +116,7 @@ const MenuTable = () => {
                       onValueChange={(newValue) => handleSwitchToggle(item.id, newValue)}
                       disabled={item.kunci === "false"}
                       trackColor={{ false: "#767577", true: "#106eea" }}
-                      thumbColor={item.pesan === "PESAN" ? "#106eea" : "#f4f3f4"}
+                      thumbColor={item.pesan === "PESAN" ? "yellow" : "#f4f3f4"}
                     />
                     {/* <Switch style={styles.switch} value={item.pesan === "PESAN"} onValueChange={(newValue) => handleSwitchToggle(item.id, newValue)} disabled={item.kunci === "false"} /> */}
                   </View>
