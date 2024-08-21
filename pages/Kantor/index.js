@@ -60,14 +60,28 @@ const Kantor = () => {
     );
   };
 
+  // const handleRute = (lat, lon) => {
+  //   const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`;
+  //   Linking.canOpenURL(url)
+  //     .then((supported) => {
+  //       if (supported) {
+  //         Linking.openURL(url);
+  //       } else {
+  //         Alert.alert("Error", "Tidak dapat membuka Google Maps, Mohon Download Google Maps Terlebih Dahulu atau Cek Lokasi Layanan.");
+  //       }
+  //     })
+  //     .catch((err) => console.error("An error occurred", err));
+  // };
+
   const handleRute = (lat, lon) => {
-    const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`;
+    const url = `geo:0,0?q=${lat},${lon}(Destination)`;
     Linking.canOpenURL(url)
       .then((supported) => {
         if (supported) {
           Linking.openURL(url);
         } else {
-          Alert.alert("Error", "Tidak dapat membuka Google Maps.");
+          const webUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`;
+          Linking.openURL(webUrl);
         }
       })
       .catch((err) => console.error("An error occurred", err));
@@ -80,8 +94,8 @@ const Kantor = () => {
         <Text style={styles.cell}>{item.kodeunit}</Text>
         <Text style={styles.cell}>{item.namaunit}</Text>
         <Text style={styles.cell}>{item.alamat}</Text>
-        <Text style={styles.cell}>{item.lat}</Text>
-        <Text style={styles.cell}>{item.lon}</Text>
+        {/* <Text style={styles.cell}>{item.lat}</Text> */}
+        {/* <Text style={styles.cell}>{item.lon}</Text> */}
         <Text style={styles.cell}>
           <TouchableOpacity style={styles.actionButton} onPress={() => handleRute(item.lat, item.lon)}>
             <Icon name="map-outline" size={18} color="blue" />
@@ -107,8 +121,8 @@ const Kantor = () => {
             <Text style={styles.headerCell}>Kode Unit</Text>
             <Text style={styles.headerCell}>Nama Unit</Text>
             <Text style={styles.headerCell}>Alamat</Text>
-            <Text style={styles.headerCell}>latitude</Text>
-            <Text style={styles.headerCell}>longitude</Text>
+            {/* <Text style={styles.headerCell}>latitude</Text> */}
+            {/* <Text style={styles.headerCell}>longitude</Text> */}
             <Text style={styles.headerCell}>Aksi</Text>
           </View>
           <ScrollView>
