@@ -3,14 +3,14 @@ import { showMessage } from "react-native-flash-message";
 import { setLoading } from "./global";
 import { getData, storeData } from "../../utils/storage/index";
 
-// const API_HOST = {
-//   url: "https://apps.ptmustika.my.id/api",
-// };
+const API_HOST = {
+  url: "https://apps.ptmustika.my.id/api",
+};
 
 // SESUAI IP ADDRESS WIFI KALIAN CONTOH = http://192.168.1.1:8000 (KANTOR)
-const API_HOST = {
-  url: "http://192.168.1.88:8000/api",
-};
+// const API_HOST = {
+//   url: "http://192.168.1.88:8000/api",
+// };
 
 // KOSAN IP ADRRESS
 // const API_HOST = {
