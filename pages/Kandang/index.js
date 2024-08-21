@@ -94,7 +94,6 @@ const Kandang = () => {
         <Text style={styles.cell}>{item.nama_flok}</Text>
         <Text style={styles.cell}>{item.nama_unit}</Text>
         <Text style={styles.cell}>{item.alamat}</Text>
-        {/* <Text style={styles.cell}>{item.latitude_gps}</Text> */}
         <Text style={styles.cell}>
           <TouchableOpacity style={styles.actionButton} onPress={() => handleRute(item.latitude_gps)}>
             <Icon name="map-outline" size={18} color="blue" />
@@ -117,10 +116,9 @@ const Kandang = () => {
         <View style={styles.table}>
           <View style={styles.headerRow}>
             <Text style={styles.headerCell}>No</Text>
-            <Text style={styles.headerCell}>Nama Flok</Text>
-            <Text style={styles.headerCell}>Nama Unit</Text>
+            <Text style={styles.headerCell}>Flok</Text>
+            <Text style={styles.headerCell}>Unit</Text>
             <Text style={styles.headerCell}>Alamat</Text>
-            {/* <Text style={styles.headerCell}>Latitude,Longitude</Text> */}
             <Text style={styles.headerCell}>Aksi</Text>
           </View>
           <ScrollView>

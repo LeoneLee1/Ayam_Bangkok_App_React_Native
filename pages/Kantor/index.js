@@ -92,10 +92,7 @@ const Kantor = () => {
       <View style={styles.row}>
         <Text style={styles.cell}>{(currentPage - 1) * itemsPerPage + index + 1}</Text>
         <Text style={styles.cell}>{item.kodeunit}</Text>
-        <Text style={styles.cell}>{item.namaunit}</Text>
         <Text style={styles.cell}>{item.alamat}</Text>
-        {/* <Text style={styles.cell}>{item.lat}</Text> */}
-        {/* <Text style={styles.cell}>{item.lon}</Text> */}
         <Text style={styles.cell}>
           <TouchableOpacity style={styles.actionButton} onPress={() => handleRute(item.lat, item.lon)}>
             <Icon name="map-outline" size={18} color="blue" />
@@ -118,11 +115,8 @@ const Kantor = () => {
         <View style={styles.table}>
           <View style={styles.headerRow}>
             <Text style={styles.headerCell}>No</Text>
-            <Text style={styles.headerCell}>Kode Unit</Text>
-            <Text style={styles.headerCell}>Nama Unit</Text>
+            <Text style={styles.headerCell}>Unit</Text>
             <Text style={styles.headerCell}>Alamat</Text>
-            {/* <Text style={styles.headerCell}>latitude</Text> */}
-            {/* <Text style={styles.headerCell}>longitude</Text> */}
             <Text style={styles.headerCell}>Aksi</Text>
           </View>
           <ScrollView>
