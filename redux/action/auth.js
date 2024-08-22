@@ -11,6 +11,9 @@ const API_HOST = {
 // const API_HOST = {
 //   url: "http://192.168.1.88:8000/api",
 // };
+// const API_HOST = {
+//   url: "http://192.168.1.252:8000/api",
+// };
 
 // KOSAN IP ADRRESS
 // const API_HOST = {
@@ -965,5 +968,30 @@ export const fetchLokasiKandang = () => (dispatch) => {
       // });
       dispatch(setLoading(false));
       console.log("Fetch Data Lokasi Kandang:", err);
+    });
+};
+
+export const valueAppUpdate = () => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get(`${API_HOST.url}/value`)
+    .then((res) => {
+      console.log("Value App Response:", res.data);
+      dispatch({
+        type: "VALUE_APP",
+        value: {
+          valueApp: res.data,
+        },
+      });
+      dispatch(setLoading(false));
+    })
+    .catch((err) => {
+      // dispatch({
+      //   type: "GET_ZOOM_PESAN_BY_ID",
+      //   value: {
+      //     isizoom: [],
+      //   },
+      // });
+      dispatch(setLoading(false));
+      console.log("Value App Response:", err);
     });
 };

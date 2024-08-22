@@ -479,4 +479,20 @@ export const fetchKandangDataReducer = (state = fetchKandangData, action) => {
   }
 };
 
+const valueUpdate = {
+  valueApp: null,
+};
+
+export const valueUpdateReducer = (state = valueUpdate, action) => {
+  switch (action.type) {
+    case "VALUE_APP":
+      return {
+        ...state,
+        valueApp: action.value,
+      };
+    default:
+      return state;
+  }
+};
+
 export default bookingReducer;

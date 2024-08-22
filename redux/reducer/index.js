@@ -20,6 +20,7 @@ import {
   fetchKantorUnitDataReducer,
   kandangDataReducer,
   fetchKandangDataReducer,
+  valueUpdateReducer,
 } from "./auth";
 import { globalReducer } from "./global";
 
@@ -45,6 +46,7 @@ const reducer = combineReducers({
   fetchKantorUnitDataReducer,
   kandangDataReducer,
   fetchKandangDataReducer,
+  valueUpdateReducer,
 });
 
 export default reducer;
