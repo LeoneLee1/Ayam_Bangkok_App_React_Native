@@ -12,7 +12,7 @@ const MenuTable = () => {
   const orders = data.orders || [];
   const date = data.tanggal || [];
 
-  const [modalVisible, setModalVisible] = useState(true);
+  // const [modalVisible, setModalVisible] = useState(true);
   const [currentItem, setCurrentItem] = useState(null);
   const [ordersLoaded, setOrdersLoaded] = useState(false);
 
@@ -27,23 +27,23 @@ const MenuTable = () => {
     }, [dispatch])
   );
 
-  useFocusEffect(
-    React.useCallback(() => {
-      if (data.submit === false) {
-        setModalVisible(true);
-      } else {
-        setModalVisible(false);
-      }
-    }, [data.submit])
-  );
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     if (data.submit === false) {
+  //       setModalVisible(true);
+  //     } else {
+  //       setModalVisible(false);
+  //     }
+  //   }, [data.submit])
+  // );
 
-  useEffect(() => {
-    if (data.submit === false) {
-      setModalVisible(true);
-    } else {
-      setModalVisible(false);
-    }
-  }, [data.submit]);
+  // useEffect(() => {
+  //   if (data.submit === false) {
+  //     setModalVisible(true);
+  //   } else {
+  //     setModalVisible(false);
+  //   }
+  // }, [data.submit]);
 
   const handleSwitchToggle = (id, newValue) => {
     const pesan = newValue ? "PESAN" : "TIDAK";
@@ -54,19 +54,19 @@ const MenuTable = () => {
   //   setModalVisible(false);
   // };
 
-  const onSubmit = () => {
-    if (!form.rating || !form.saran) {
-      Alert.alert("Mohon Maaf", "Tolong Di isi!");
-      return;
-    }
-    dispatch(submitKusionerAction(form));
-    setModalVisible(false);
-  };
+  // const onSubmit = () => {
+  //   if (!form.rating || !form.saran) {
+  //     Alert.alert("Mohon Maaf", "Tolong Di isi!");
+  //     return;
+  //   }
+  //   dispatch(submitKusionerAction(form));
+  //   setModalVisible(false);
+  // };
 
   return (
     <View style={styles.container}>
       {/* MODAL */}
-      <Modal
+      {/* <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -94,7 +94,7 @@ const MenuTable = () => {
             </View>
           </View>
         </TouchableWithoutFeedback>
-      </Modal>
+      </Modal> */}
       {/* // */}
       <View style={styles.card}>
         <View style={styles.cardBody}>
