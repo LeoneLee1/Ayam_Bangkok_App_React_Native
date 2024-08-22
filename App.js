@@ -20,6 +20,7 @@ const MainApp = () => {
       try {
         const response = await axios.get("https://apps.ptmustika.my.id/api/value");
         const { updateLink, version } = response.data.data;
+        // console.log(version);
 
         if (version === appVersion) {
           setUpdateLink(updateLink);
