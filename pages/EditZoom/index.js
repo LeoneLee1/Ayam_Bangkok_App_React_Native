@@ -20,9 +20,9 @@ const EditZoom = ({ route }) => {
   const [showTimeSelesaiPicker, setShowTimeSelesaiPicker] = useState(false);
 
   const [form, setForm] = useForm({
-    tanggal: "",
-    jam_mulai: "",
-    jam_selesai: "",
+    tanggal: tanggal,
+    jam_mulai: jam_mulai,
+    jam_selesai: jam_selesai,
     zoom: zoom,
   });
 
@@ -115,11 +115,7 @@ const EditZoom = ({ route }) => {
   };
 
   const onSubmit = () => {
-    if (!form.tanggal || !form.jam_mulai || !form.jam_selesai) {
-      showMessage("Mohon lengkapi semua data", "danger");
-    } else {
-      dispatch(updateZoomAction(id, form, navigation));
-    }
+    dispatch(updateZoomAction(id, form, navigation));
   };
 
   return (

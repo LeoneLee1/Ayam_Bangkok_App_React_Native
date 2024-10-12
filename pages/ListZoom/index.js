@@ -44,7 +44,7 @@ const ListZoom = ({ route }) => {
           style: "cancel",
         },
         {
-          text: "Batalkan",
+          text: "Hapus",
           onPress: async () => {
             await dispatch(updateValueZoomAction(item.id));
             dispatch(getBookingZoomAction(id));

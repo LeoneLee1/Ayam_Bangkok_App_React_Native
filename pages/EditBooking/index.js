@@ -18,19 +18,12 @@ const EditBooking = ({ route, navigation }) => {
   const [showTimeSelesaiPicker, setShowTimeSelesaiPicker] = useState(false);
 
   const [form, setForm] = useForm({
-    tanggal: "",
-    jam_mulai: "",
-    jam_selesai: "",
-    jumlah_peserta: "",
+    tanggal: tanggal,
+    jam_mulai: jam_mulai,
+    jam_selesai: jam_selesai,
+    jumlah_peserta: jumlah_peserta,
     ruang: ruang,
   });
-
-  useEffect(() => {
-    setForm("tanggal", tanggal);
-    setForm("jam_mulai", jam_mulai);
-    setForm("jam_selesai", jam_selesai);
-    setForm("jumlah_peserta", jumlah_peserta);
-  }, [tanggal, jam_mulai, jam_selesai, jumlah_peserta]);
 
   const toggleDatePicker = () => {
     setShowDatePicker(!showDatePicker);
@@ -121,11 +114,7 @@ const EditBooking = ({ route, navigation }) => {
   };
 
   const onSubmit = () => {
-    if (!form.tanggal || !form.jam_mulai || !form.jam_selesai || !form.jumlah_peserta) {
-      showMessage("Mohon lengkapi semua data", "danger");
-    } else {
-      dispatch(updateBookingAction(id, form, navigation));
-    }
+    dispatch(updateBookingAction(id, form, navigation));
   };
 
   return (
