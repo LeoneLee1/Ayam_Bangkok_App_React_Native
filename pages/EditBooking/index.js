@@ -123,7 +123,7 @@ const EditBooking = ({ route, navigation }) => {
         <Header title={`Edit Booking ${id}`} onBack={() => navigation.goBack()} />
         <View style={styles.container}>
           <View>
-            {showDatePicker && <DateTimePicker mode="date" display="spinner" value={date} onChange={onDateChange} style={styles.datePicker} maximumDate={new Date("2024-12-31")} minimumDate={new Date("2005-1-1")} />}
+            {showDatePicker && <DateTimePicker mode="date" display="spinner" value={date} onChange={onDateChange} style={styles.datePicker} maximumDate={new Date("2030-12-31")} minimumDate={new Date("2005-1-1")} />}
 
             {showDatePicker && Platform.OS === "ios" && (
               <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
